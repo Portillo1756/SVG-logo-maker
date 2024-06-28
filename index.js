@@ -1,3 +1,5 @@
+const inquirer = require('inquirer');
+const path = require("path");
 
 
 // TODO: Create an array of questions for user input
@@ -16,7 +18,7 @@ const questions = [
     },
 
     {
-        type: "checkbox",
+        type: "list",
         name: "shape",
         message: "Select a shape for the logo",
         choices: ["circle", "square", "triangle"],
@@ -24,7 +26,14 @@ const questions = [
 
     {
         type: "input",
-        name: "shape color",
+        name: "shapeColor",
         message: "Enter a shape color",
     },
 ]
+
+// TODO: Create a function to initialize app
+function maker() {
+    inquirer.prompt(questions).then( (res) => {console.log(res.name)})
+}
+
+maker()
