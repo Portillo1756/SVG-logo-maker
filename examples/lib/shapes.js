@@ -10,3 +10,4 @@ class Square extends Shape {}
 
 class Triangle extends Shape {}
 
+console.log("shape"); 
