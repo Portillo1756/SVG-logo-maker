@@ -11,3 +11,7 @@ class Square extends Shape {}
 class Triangle extends Shape {}
 
 console.log("shape"); 
+
+
+// constructor arithmetic is exported from the file.
+module.exports = shapes.test.js;
