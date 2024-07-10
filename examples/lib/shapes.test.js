@@ -1,5 +1,4 @@
 const {Triangle, Circle, Square} = require('./shapes.js');
-const {Triangle, Circle, Square} = require('./logo.svg');
 
 // TODO: CREATED MY TEST
 // const shape = new Circle();
@@ -26,6 +25,16 @@ describe("triangle",() => {
        const triangle = new Triangle()
        triangle.setColor("red")
        const svg = triangle.render()
+       expect(svg).toEqual(expect);  
+    })
+})
+
+describe("square",() => {
+    test ("this should be a square svg", () => {
+       const expect = '<rect x="150" y="150" width="150" height="150" fill="${this.color}"/>'
+       const square = new Square()
+       square.setColor("red")
+       const svg = square.render()
        expect(svg).toEqual(expect);  
     })
 })

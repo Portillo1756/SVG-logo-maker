@@ -33,7 +33,7 @@ function maker() {
         if(res.shape== "circle") {
             const circle = new Circle()
             circle.setColor(res.color)
-            circle.setText(res.name)
+            // circle.setText(res.name)
             console.log(circle)
             console.log(circle.render())
             return fs.writeFile("logo.svg", circle.render())
@@ -41,7 +41,7 @@ function maker() {
         else if(res.shape== "square") {
             const square = new Square()
             square.setColor(res.color)
-            square.setText(res.name)
+            // square.setText(res.name)
             console.log(square)
             console.log(square.render())
             return fs.writeFile("logo.svg", square.render())
@@ -49,7 +49,7 @@ function maker() {
         else if(res.shape== "triangle") {
             const triangle = new Triangle()
             triangle.setColor(res.color)
-            triangle.setText(res.name)
+            // triangle.setText(res.name)
             console.log(triangle)
             console.log(triangle.render())
             return fs.writeFile("logo.svg", triangle.render())
