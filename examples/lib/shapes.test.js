@@ -11,30 +11,30 @@ const {Triangle, Circle, Square} = require('./shapes.js');
 
 describe("circle", () => {
     test ("this should be a red circle svg", () => {
-       const expect = '<circle cx="150" cy="100" r="80" fill="red"/>'
+       const expectedShape = `<circle cx="150" cy="100" r="80" fill="red"/>`
        const circle = new Circle()
        circle.setColor("red")
        const svg = circle.render()
-       expect(svg).toEqual(expect);  
+       expect(svg).toEqual(expectedShape);  
     })
 })
 
 describe("triangle",() => {
     test ("this should be a triangle svg", () => {
-       const expect = '<polygon points="50, 160 55, 180 70, 180 60, 190 65, 205 50, 195 35, 205 40, 190 30, 180 45, 180 fill="${this.color}"/>'
+       const expectedShape = `<polygon points="50, 160 55, 180 70, 180 60, 190 65, 205 50, 195 35, 205 40, 190 30, 180 45, 180 fill="red"/>`
        const triangle = new Triangle()
        triangle.setColor("red")
        const svg = triangle.render()
-       expect(svg).toEqual(expect);  
+       expect(svg).toEqual(expectedShape);  
     })
 })
 
 describe("square",() => {
     test ("this should be a square svg", () => {
-       const expect = '<rect x="150" y="150" width="150" height="150" fill="${this.color}"/>'
+       const expectedShape = `<rect x="150" y="150" width="150" height="150" fill="red"/>`
        const square = new Square()
        square.setColor("red")
        const svg = square.render()
-       expect(svg).toEqual(expect);  
+       expect(svg).toEqual(expectedShape);  
     })
 })

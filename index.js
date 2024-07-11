@@ -1,7 +1,8 @@
 const inquirer = require ('inquirer');
 const path = require("path");
-const {Circle, Square} = require("./examples/lib/shapes");
+const {Circle, Square, Triangle} = require("./examples/lib/shapes");
 const fs = require("fs/promises")
+const svg = require("./examples/lib/svg")
 
 
 // TODO: Create an array of questions for user input
@@ -32,24 +33,27 @@ function maker() {
     inquirer.prompt(questions).then( (res) => {
         if(res.shape== "circle") {
             const circle = new Circle()
-            circle.setColor(res.color)
-            // circle.setText(res.name)
+            // circle.setColor(res.color)
+            svg.renderText(res.name)
+            svg.setShape(shape)
             console.log(circle)
             console.log(circle.render())
             return fs.writeFile("logo.svg", circle.render())
         }
         else if(res.shape== "square") {
             const square = new Square()
-            square.setColor(res.color)
-            // square.setText(res.name)
+            // square.setColor(res.color)
+            svg.renderText(res.name)
+            svg.setShape(shape)
             console.log(square)
             console.log(square.render())
             return fs.writeFile("logo.svg", square.render())
         }
         else if(res.shape== "triangle") {
             const triangle = new Triangle()
-            triangle.setColor(res.color)
-            // triangle.setText(res.name)
+            // triangle.setColor(res.color)
+            svg.renderText(res.name)
+            svg.setShape(shape)
             console.log(triangle)
             console.log(triangle.render())
             return fs.writeFile("logo.svg", triangle.render())
