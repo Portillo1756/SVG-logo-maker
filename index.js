@@ -2,7 +2,7 @@ const inquirer = require ('inquirer');
 const path = require("path");
 const {Circle, Square, Triangle} = require("./examples/lib/shapes");
 const fs = require("fs/promises")
-const svg = require("./examples/lib/svg")
+const SVG = require("./examples/lib/svg")
 
 
 // TODO: Create an array of questions for user input
@@ -31,32 +31,30 @@ const questions = [
 // TODO: Create a function to initialize app
 function maker() {
     inquirer.prompt(questions).then( (res) => {
+        let shape;
         if(res.shape== "circle") {
-            const circle = new Circle()
-            // circle.setColor(res.color)
-            svg.renderText(res.name)
+            shape = new Circle()
+            const svg = new SVG()
+            shape.setColor(res.color)
+            svg.renderText(res.name, res.textColor)
             svg.setShape(shape)
-            console.log(circle)
-            console.log(circle.render())
-            return fs.writeFile("logo.svg", circle.render())
+            return fs.writeFile("logo.svg", svg.render())
         }
         else if(res.shape== "square") {
-            const square = new Square()
-            // square.setColor(res.color)
-            svg.renderText(res.name)
+            shape = new Square()
+            const svg = new SVG()
+            shape.setColor(res.color)
+            svg.renderText(res.name, res.textColor),
             svg.setShape(shape)
-            console.log(square)
-            console.log(square.render())
-            return fs.writeFile("logo.svg", square.render())
+            return fs.writeFile("logo.svg", svg.render())
         }
         else if(res.shape== "triangle") {
-            const triangle = new Triangle()
-            // triangle.setColor(res.color)
-            svg.renderText(res.name)
+            shape = new Triangle()
+            const svg = new SVG()
+            triangle.setColor(res.color)
+            svg.renderText(res.name, res.textColor)
             svg.setShape(shape)
-            console.log(triangle)
-            console.log(triangle.render())
-            return fs.writeFile("logo.svg", triangle.render())
+            return fs.writeFile("logo.svg", svg.render())
         }
     })
     .then(() => {console.log("complete")})
